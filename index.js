@@ -7,7 +7,8 @@ const categoryMap = {
     'Sixes': scoreUnique(6),
     'ThreeOfAKind': scoreValueOfAKind(3),
     'FourOfAKind': scoreValueOfAKind(4),
-    'FullHouse' : fullHouse
+    'FullHouse' : fullHouse,
+    'SmallStraight' : scoreSmallStraight(),
 }
 
 function score(category, data) {
@@ -42,6 +43,18 @@ function countIterations(data) {
     const array = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
     data.forEach(indexDice => array[indexDice]++)
     return Object.keys(array).map(val => { return {value: val, count: array[val]}})
+}
+
+function getData() {
+    return (data) => data;
+}
+function scoreSmallStraight() {
+    return (data) => ([1,2,3,4].every(i => data.includes(i))) ? 
+                            30 : 
+                            ([2,3,4,5].every(i => data.includes(i))) ? 
+                                30 : 
+                                ([3,4,5,6].every(i => data.includes(i))) ? 
+                                    30 : 0
 }
 
 module.exports = { score }

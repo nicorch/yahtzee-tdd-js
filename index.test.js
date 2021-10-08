@@ -159,7 +159,7 @@ const dataSmallStraight = [
     {input: [3, 2, 3, 2, 2], expected: 0},
     {input: [1, 2, 6, 5, 5], expected: 0}
 ]
-describe.each(dataFULL)('Scoring SmallStraight', ({input, expected}) => {
+describe.each(dataSmallStraight)('Scoring SmallStraight', ({input, expected}) => {
     it(`Score from ${input} is expected to return ${expected}`, () => {
         const result = yahtzee.score('SmallStraight', input)
         expect(result).toBe(expected);
