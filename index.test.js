@@ -20,11 +20,20 @@ describe('Scoring Ones', () => {
 })
 
 // Test Twos
-// describe('Scoring Twos', () => {
-//     it(`should return 1 when scoring [1,2,3,4,5] for Twos`, () => {            
-//         assert.equal([1,2,3,4,5], 1)
-//     })
-// })
+describe('Scoring Ones', () => {
+    it(`should return 1 when scoring [1,2,3,4,5] for Twos`, () => {      
+        const result = yahtzee.score('Twos', [1,2,3,4,5])      
+        assert.equal(result, 1)
+    })
+    it(`should return 0 when scoring [1,1,3,4,5] for Twos`, () => {      
+        const result = yahtzee.score('Twos', [1,1,3,4,5])      
+        assert.equal(result, 0)
+    })
+    it(`should return 4 when scoring [2,2,2,4,2] for Twos`, () => {      
+        const result = yahtzee.score('Twos', [2,2,2,4,2])      
+        assert.equal(result, 4)
+    })
+})
 
 
 // Test Threes
