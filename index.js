@@ -10,7 +10,8 @@ const categoryMap = {
     'FullHouse' : fullHouse,
     'SmallStraight' : scoreSmallStraight(),
     'LargeStraight' : scoreLargeStraight(),
-    'Yahtzee': yahtzee
+    'Yahtzee': yahtzee,
+    'Chance': somme
 }
 
 function score(category, data) {

@@ -195,3 +195,18 @@ describe.each(dataYahtzee)('Scoring Yahtzee', ({input, expected}) => {
         expect(result).toBe(expected);
     });
 });
+
+// Test Chance
+
+const dataChance = [
+    {input: [1, 2, 3, 4, 5], expected: 15},
+    {input: [2, 4, 3, 6, 5], expected: 20},
+    {input: [1, 2, 6, 5, 5], expected: 19},
+    {input: [2, 3, 5, 6, 6], expected: 22}
+]
+describe.each(dataChance)('Scoring Chance', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Chance', input)
+        expect(result).toBe(expected);
+    });
+});
