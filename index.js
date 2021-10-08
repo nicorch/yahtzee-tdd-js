@@ -7,7 +7,7 @@ const categoryMap = {
     'Sixes': scoreUnique(6),
     'ThreeOfAKind': scoreValueOfAKind(3),
     'FourOfAKind': scoreValueOfAKind(4),
-    'fullHouse' : fullHouse
+    'FullHouse' : fullHouse
 }
 
 function score(category, data) {
