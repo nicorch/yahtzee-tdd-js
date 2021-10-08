@@ -112,7 +112,7 @@ describe.each(dataTestSixes)('Scoring Sixes', ({input, expected}) => {
 
 describe.each(dataThreeOfAKind)('Scoring ThreeOfAKind', ({input, expected}) => {
     it(`Score from ${input} is expected to return ${expected}`, () => {
-        const result = yahtzee.score('Sixes', input)
+        const result = yahtzee.score('ThreeOfAKind', input)
         expect(result).toBe(expected);
     });
 });
