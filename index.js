@@ -5,7 +5,8 @@ const categoryMap = {
     'Fours': scoreUnique(4),
     'Fives': scoreUnique(5),
     'Sixes': scoreUnique(6),
-    'ThreeOfAKind': scoreThreeOfAKind(3),
+    'ThreeOfAKind': scoreValueOfAKind(3),
+    'FourOfAKind': scoreValueOfAKind(4),
 }
 
 function score(category, data) {
@@ -23,12 +24,12 @@ function somme(filteredDatas) {
     return filteredDatas.reduce((current, previous) => previous+current,0)
 }
 
-function scoreThreeOfAKind() {
-    return (data) => hasThreeOfAKind(data) ? somme(data) : 0
+function scoreValueOfAKind(n) {
+    return (data) => hasValueOfAKind(n)(data) ? somme(data) : 0
 } 
 
-function hasThreeOfAKind(data) {
-    return countIterations(data).some(x => x.count >= 3);
+function hasValueOfAKind(n) {
+    return (data) => countIterations(data).some(x => x.count >= n);
 }
 
 function countIterations(data) {
