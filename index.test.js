@@ -97,38 +97,55 @@ describe.each(dataTestSixes)('Scoring Sixes', ({input, expected}) => {
         expect(result).toBe(expected);
     });
 })
+
 /**
  * Second parts
  */
 
- const dataThreeOfAKind = [
+
+// Test 3 of a kind
+
+const dataThreeOfAKind = [
     {input: [1,2,3,4,5], expected: 0},
     {input: [1,2,3,2,2], expected: 10},
     {input: [1,1,1,4,5], expected: 12},
     {input: [6,2,6,3,6], expected: 23}
-]
-
-// Test 3 of a kind
-
-describe.each(dataThreeOfAKind)('Scoring ThreeOfAKind', ({input, expected}) => {
-    it(`Score from ${input} is expected to return ${expected}`, () => {
-        const result = yahtzee.score('ThreeOfAKind', input)
-        expect(result).toBe(expected);
-    });
-});
-
-const dataFourOfAKind = [
-    {input: [1,2,3,4,5], expected: 0},
-    {input: [1,2,2,2,2], expected: 9},
-    {input: [1,1,1,1,1], expected: 5},
-    {input: [3,3,6,3,6], expected: 0}
-]
-
-// Test 4 of a kind
-
-describe.each(dataFourOfAKind)('Scoring FourOfAKind', ({input, expected}) => {
-    it(`Score from ${input} is expected to return ${expected}`, () => {
-        const result = yahtzee.score('FourOfAKind', input)
-        expect(result).toBe(expected);
-    });
-});
+ ]
+ describe.each(dataThreeOfAKind)('Scoring ThreeOfAKind', ({input, expected}) => {
+     it(`Score from ${input} is expected to return ${expected}`, () => {
+         const result = yahtzee.score('ThreeOfAKind', input)
+         expect(result).toBe(expected);
+     });
+ });
+ 
+ 
+ // Test 4 of a kind
+ 
+ const dataFourOfAKind = [
+     {input: [1,2,3,4,5], expected: 0},
+     {input: [1,2,2,2,2], expected: 9},
+     {input: [1,1,1,1,1], expected: 5},
+     {input: [3,3,6,3,6], expected: 0}
+ ]
+ describe.each(dataFourOfAKind)('Scoring FourOfAKind', ({input, expected}) => {
+     it(`Score from ${input} is expected to return ${expected}`, () => {
+         const result = yahtzee.score('FourOfAKind', input)
+         expect(result).toBe(expected);
+     });
+ });
+ 
+ // Test Full House
+ 
+ const dataFULL = [
+     {input: [1, 2, 3, 4, 5], expected: 0},
+     {input: [3, 2, 3, 2, 2], expected: 25},
+     {input: [3, 6, 6, 3, 3], expected: 25},
+     {input: [3, 3, 6, 1, 6], expected: 0}
+ ]
+ 
+ describe.each(dataFULL)('Scoring FullHouse', ({input, expected}) => {
+     it(`Score from ${input} is expected to return ${expected}`, () => {
+         const result = yahtzee.score('FullHouse', input)
+         expect(result).toBe(expected);
+     });
+ });
