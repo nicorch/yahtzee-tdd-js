@@ -180,3 +180,18 @@ describe.each(dataLargeStraight)('Scoring LargeStraight', ({input, expected}) =>
         expect(result).toBe(expected);
     });
 });
+
+// Test Yahtzee
+
+const dataYahtzee = [
+    {input: [1, 1, 1, 1, 1], expected: 50},
+    {input: [2, 5, 5, 5, 5], expected: 0},
+    {input: [2, 2, 2, 2, 2], expected: 50},
+    {input: [1, 2, 6, 5, 5], expected: 0}
+]
+describe.each(dataYahtzee)('Scoring Yahtzee', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Yahtzee', input)
+        expect(result).toBe(expected);
+    });
+});
