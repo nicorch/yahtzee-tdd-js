@@ -1,6 +1,7 @@
 const categoryMap = {
     'Ones': scoreUnique(1),
     'Twos': scoreUnique(2),
+    'Threes': scoreUnique(3),
 }
 
 function score(category, data) {
