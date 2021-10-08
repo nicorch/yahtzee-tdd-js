@@ -116,3 +116,19 @@ describe.each(dataThreeOfAKind)('Scoring ThreeOfAKind', ({input, expected}) => {
         expect(result).toBe(expected);
     });
 });
+
+const dataFourOfAKind = [
+    {input: [1,2,3,4,5], expected: 0},
+    {input: [1,2,2,2,2], expected: 9},
+    {input: [1,1,1,1,1], expected: 5},
+    {input: [3,3,6,3,6], expected: 0}
+]
+
+// Test 4 of a kind
+
+describe.each(dataFourOfAKind)('Scoring FourOfAKind', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('FourOfAKind', input)
+        expect(result).toBe(expected);
+    });
+});
