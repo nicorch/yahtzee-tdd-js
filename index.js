@@ -10,6 +10,7 @@ const categoryMap = {
     'FullHouse' : fullHouse,
     'SmallStraight' : scoreSmallStraight(),
     'LargeStraight' : scoreLargeStraight(),
+    'Yahtzee': yahtzee
 }
 
 function score(category, data) {
@@ -60,6 +61,11 @@ function scoreLargeStraight() {
                             40 : 
                             ([2,3,4,5,6].every(i => data.includes(i))) ? 
                                 40 : 0;
+}
+
+function yahtzee(data) {
+    const result = countIterations(data)
+    return result.some(d => d.count === 5) ? 50 : 0
 }
 
 module.exports = { score }
