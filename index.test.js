@@ -3,55 +3,97 @@ const yahtzee = require('./index')
 const assert = require('assert')
 
 
+const dataTestOnes = [
+    {input: [1,2,3,4,5], expected: 1},
+    {input: [1,1,3,4,5], expected: 2},
+    {input: [1,1,1,4,5], expected: 3},
+    {input: [4,2,3,4,5], expected: 0}
+]
+
+const dataTestTwos = [
+    {input: [1,1,3,4,5], expected: 0},
+    {input: [1,2,2,2,5], expected: 6},
+    {input: [2,1,1,4,5], expected: 2},
+    {input: [2,2,2,2,2], expected: 10}
+]
+
+const dataTestThrees = [
+    {input: [3,2,3,4,5], expected: 6},
+    {input: [1,1,3,4,5], expected: 3},
+    {input: [1,1,1,4,5], expected: 0},
+    {input: [4,2,3,3,3], expected: 9}
+]
+
+const dataTestFours = [
+    {input: [3,2,3,4,2], expected: 4},
+    {input: [4,4,3,4,5], expected: 12},
+    {input: [4,4,4,4,4], expected: 20},
+    {input: [6,2,3,3,3], expected: 0}
+]
+
+const dataTestFives = [
+    {input: [3,2,3,4,5], expected: 5},
+    {input: [5,1,3,4,5], expected: 10},
+    {input: [1,1,1,4,3], expected: 0},
+    {input: [5,5,5,5,5], expected: 25}
+]
+
+const dataTestSixes = [
+    {input: [3,2,6,4,5], expected: 6},
+    {input: [6,6,3,4,5], expected: 12},
+    {input: [1,1,1,4,5], expected: 0},
+    {input: [6,2,6,3,6], expected: 18}
+]
+
 // Test Ones
-describe('Scoring Ones', () => {
-    it(`should return 1 when scoring [1,2,3,4,5] for Ones`, () => {      
-        const result = yahtzee.score('Ones', [1,2,3,4,5])      
-        assert.equal(result, 1)
-    })
-    it(`should return 2 when scoring [1,1,3,4,5] for Ones`, () => {      
-        const result = yahtzee.score('Ones', [1,1,3,4,5])      
-        assert.equal(result, 2)
-    })
-    it(`should return 3 when scoring [1,1,1,4,5] for Ones`, () => {      
-        const result = yahtzee.score('Ones', [1,1,1,4,5])      
-        assert.equal(result, 3)
-    })
+describe.each(dataTestOnes)('Scoring Ones', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Ones', input)
+        expect(result).toBe(expected);
+    });
 })
 
 // Test Twos
-describe('Scoring Twos', () => {
-    it(`should return 2 when scoring [1,2,3,4,5] for Twos`, () => {      
-        const result = yahtzee.score('Twos', [1,2,3,4,5])      
-        assert.equal(result, 2)
-    })
-    it(`should return 0 when scoring [1,1,3,4,5] for Twos`, () => {      
-        const result = yahtzee.score('Twos', [1,1,3,4,5])      
-        assert.equal(result, 0)
-    })
-    it(`should return 8 when scoring [2,2,2,4,2] for Twos`, () => {      
-        const result = yahtzee.score('Twos', [2,2,2,4,2])      
-        assert.equal(result, 8)
-    })
+
+describe.each(dataTestTwos)('Scoring Twos', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Twos', input)
+        expect(result).toBe(expected);
+    });
 })
 
-
 // Test Threes
-describe('Scoring Threes', () => {
-    it(`should return 3 when scoring [1,2,3,4,5] for Threes`, () => {      
-        const result = yahtzee.score('Threes', [1,2,3,4,5])      
-        assert.equal(result, 3)
-    })
-    it(`should return 6 when scoring [1,3,3,4,5] for Threes`, () => {      
-        const result = yahtzee.score('Threes', [1,3,3,4,5])      
-        assert.equal(result, 6)
-    })
-    it(`should return 9 when scoring [2,3,2,3,3] for Threes`, () => {      
-        const result = yahtzee.score('Threes', [2,3,2,3,3])      
-        assert.equal(result, 9)
-    })
+
+describe.each(dataTestThrees)('Scoring Threes', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Threes', input)
+        expect(result).toBe(expected);
+    });
 })
 
 // Test Fours
+
+describe.each(dataTestFours)('Scoring Fours', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Fours', input)
+        expect(result).toBe(expected);
+    });
+})
+
 // Test Fives
+
+describe.each(dataTestFives)('Scoring Fives', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Fives', input)
+        expect(result).toBe(expected);
+    });
+})
+
 // Test Sixes
+
+describe.each(dataTestSixes)('Scoring Sixes', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Sixes', input)
+        expect(result).toBe(expected);
+    });
+})

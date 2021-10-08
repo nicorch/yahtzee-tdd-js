@@ -1,0 +1,25 @@
+{
+  "name": "yahtzee-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicorch/yahtzee-tdd-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicorch/yahtzee-tdd-js/issues"
+  },
+  "homepage": "https://github.com/nicorch/yahtzee-tdd-js#readme",
+  "devDependencies": {
+    "jest": "^27.2.4"
+  },
+  "dependencies": {
+    "jest-theories": "^1.5.1"
+  }
+}
