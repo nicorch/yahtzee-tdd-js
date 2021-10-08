@@ -1,5 +1,6 @@
 const categoryMap = {
-    'Ones': scoreUnique(1)
+    'Ones': scoreUnique(1),
+    'Twos': scoreUnique(2),
 }
 
 function score(category, data) {
@@ -10,7 +11,11 @@ function score(category, data) {
 }
 
 function scoreUnique(value){
-    return (data) => data.filter( d => d === value).length 
+    return (data) => somme(data.filter( d => d === value));
+}
+
+function somme(filteredDatas) {
+    return filteredDatas.reduce((current, previous) => previous+current,0)
 }
 
 module.exports = { score }
