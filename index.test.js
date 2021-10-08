@@ -165,3 +165,18 @@ describe.each(dataSmallStraight)('Scoring SmallStraight', ({input, expected}) =>
         expect(result).toBe(expected);
     });
 });
+
+// Test Large Straight
+
+const dataLargeStraight = [
+    {input: [1, 2, 3, 4, 5], expected: 40},
+    {input: [2, 4, 3, 6, 5], expected: 40},
+    {input: [1, 2, 6, 5, 5], expected: 0},
+    {input: [2, 3, 4, 5, 5], expected: 0}
+]
+describe.each(dataLargeStraight)('Scoring LargeStraight', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('LargeStraight', input)
+        expect(result).toBe(expected);
+    });
+});
