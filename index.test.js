@@ -97,3 +97,22 @@ describe.each(dataTestSixes)('Scoring Sixes', ({input, expected}) => {
         expect(result).toBe(expected);
     });
 })
+/**
+ * Second parts
+ */
+
+ const dataThreeOfAKind = [
+    {input: [1,2,3,4,5], expected: 0},
+    {input: [1,2,3,2,2], expected: 10},
+    {input: [1,1,1,4,5], expected: 12},
+    {input: [6,2,6,3,6], expected: 23}
+]
+
+// Test 3 of a kind
+
+describe.each(dataThreeOfAKind)('Scoring ThreeOfAKind', ({input, expected}) => {
+    it(`Score from ${input} is expected to return ${expected}`, () => {
+        const result = yahtzee.score('Sixes', input)
+        expect(result).toBe(expected);
+    });
+});
