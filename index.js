@@ -7,6 +7,7 @@ const categoryMap = {
     'Sixes': scoreUnique(6),
     'ThreeOfAKind': scoreValueOfAKind(3),
     'FourOfAKind': scoreValueOfAKind(4),
+    'fullHouse' : fullHouse
 }
 
 function score(category, data) {
@@ -30,6 +31,11 @@ function scoreValueOfAKind(n) {
 
 function hasValueOfAKind(n) {
     return (data) => countIterations(data).some(x => x.count >= n);
+}
+
+function fullHouse(data){
+    const result = countIterations(data)
+    return (result.some(d => d.count === 3) && (result.some(d => d.count === 2)) ? 25 : 0 ) 
 }
 
 function countIterations(data) {
